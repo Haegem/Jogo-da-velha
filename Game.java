@@ -42,6 +42,7 @@ public class Game extends JFrame {
 	 */
 	
 	public Game() {
+		
 		metaData meta = new metaData();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 400);
@@ -50,6 +51,9 @@ public class Game extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		for(int i=0;i<9;i++) {
+			meta.local[i] = 3;
+		}
 		
 		JButton btnNoroeste = new JButton("NOROESTE");
 		btnNoroeste.setForeground(Color.BLACK);
@@ -64,11 +68,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[0] = true;
 				
-				meta.local[0] = meta.local(meta.pick);
+				meta.local[0] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -98,11 +102,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[1] = true;
 				
-				meta.local[1] = meta.local(meta.pick);
+				meta.local[1] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -132,11 +136,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[2] = true;
 				
-				meta.local[2] = meta.local(meta.pick);
+				meta.local[2] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -165,11 +169,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[3] = true;
 				
-				meta.local[3] = meta.local(meta.pick);
+				meta.local[3] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -198,11 +202,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[4] = true;
 				
-				meta.local[4] = meta.local(meta.pick);
+				meta.local[4] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -231,11 +235,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[5] = true;
 				
-				meta.local[5] = meta.local(meta.pick);
+				meta.local[5] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -264,11 +268,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[6] = true;
 				
-				meta.local[6] = meta.local(meta.pick);
+				meta.local[6] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -297,11 +301,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[7] = true;
 				
-				meta.local[7] = meta.local(meta.pick);
+				meta.local[7] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -330,11 +334,11 @@ public class Game extends JFrame {
 				
 				meta.ativo[8] = true;
 				
-				meta.local[8] = meta.local(meta.pick);
+				meta.local[8] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin(meta.local, meta.ativo);
+					meta.whoWin();
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

@@ -32,20 +32,20 @@ public class metaData {
     int[] cont = new int[9];
     //Botões das coordenadas
     JButton[] btn = new JButton[9];
-    //??
+    //Visualizador se botão já foi apertado
 	int local[] = new int[9];
-	//Visualizador se botão já foi apertado
+	//Visualizador se todos os botões ja foram apertado
 	boolean[] ativo = {false, false, false, false, false, false, false, false, false};
 	//Salvador player
-	private String dataNick;
-	private int setSave = 0;
+	//private String dataNick;
+	//private int setSave = 0;
 	//Construtor do metaData player
-	metaData player = new metaData();
+	//metaData player = new metaData();
 
 	//MÉTODOS COMUNS
-	public int local(int x) {
+	public int transpick() {
 	int result;
-	if(x == 0) {
+	if(pick == 0) {
 		pick = 1;
 		result = 0;
 	}
@@ -57,94 +57,94 @@ public class metaData {
 	return result;
 }
 	
-	public int whoWin(int local[], boolean[] ativo)
+	public int whoWin()
 			throws HeadlessException, FileNotFoundException, IOException {
 		if(local[0] == 0 && local[6] == 0 && local[3] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			player.carregar().replaceAll(" = 0 V", " = 1 V ");
-			new JMenu().setVisible(true);
+			//player.carregar().replaceAll(" = 0 V", " = 1 V ");
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[0] == 1 && local[6] == 1 && local[3] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[0] == 0 && local[4] == 0 && local[1] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[0] == 1 && local[4] == 1 && local[1] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[0] == 0 && local[5] == 0 && local[2] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[0] == 1 && local[5] == 1 && local[2] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[5] == 0 && local[6] == 0 && local[7] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[5] == 1 && local[6] == 1 && local[7] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[2] == 0 && local[8] == 0 && local[3] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[2] == 1 && local[8] == 1 && local[3] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[1] == 0 && local[6] == 0 && local[2] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[1] == 1 && local[6] == 1 && local[2] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[1] == 0 && local[7] == 0 && local[3] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[1] == 1 && local[7] == 1 && local[3] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[4] == 0 && local[6] == 0 && local[8] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		else if(local[4] == 1 && local[6] == 1 && local[8] == 1) {
 			JOptionPane.showMessageDialog(null, "Você perdeu!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		if(ativo[0] == true && ativo[1] == true && ativo[2] == true && ativo[3] == true &&
 				ativo[4] == true && ativo[5] == true && ativo[6] == true && ativo[7] == true
 				&& ativo[8] == true) {
 			JOptionPane.showMessageDialog(null, "Ninguém ganhou!");
-			new JMenu().setVisible(true);
+			new Menu().setVisible(true);
 			return 1;
 		}
 		return 0;
@@ -182,7 +182,7 @@ public class metaData {
 				pw.close();
 			}
 
-			public String carregar()
+			/*public String carregar()
 			throws FileNotFoundException, IOException {
 
 				File file = 
@@ -204,10 +204,10 @@ public class metaData {
 				}
 				br.close();
 				return bufSaida.toString();
-			}
+			}*/
 	
 	public void Players() {
-		this.dataNick = "";
+		//this.dataNick = "";
 		//this.dataPoints = 0;
 	}
 	

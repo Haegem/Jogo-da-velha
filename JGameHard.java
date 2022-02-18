@@ -95,7 +95,7 @@ public class JGameHard extends JFrame {
 								firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -134,7 +134,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -179,7 +179,7 @@ public class JGameHard extends JFrame {
 									firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -218,7 +218,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -263,7 +263,7 @@ public class JGameHard extends JFrame {
 									firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -302,7 +302,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -347,7 +347,7 @@ public class JGameHard extends JFrame {
 									firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -386,7 +386,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -430,7 +430,7 @@ public class JGameHard extends JFrame {
 									}
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -469,7 +469,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -514,7 +514,7 @@ public class JGameHard extends JFrame {
 									firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -553,7 +553,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -598,7 +598,7 @@ public class JGameHard extends JFrame {
 									firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -637,7 +637,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -682,7 +682,7 @@ public class JGameHard extends JFrame {
 									firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -721,7 +721,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
@@ -766,7 +766,7 @@ public class JGameHard extends JFrame {
 									firstActivated += 1;
 						}else {
 							try {
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 							} catch (HeadlessException | IOException e2) {
 								e2.printStackTrace();
 							}
@@ -805,7 +805,7 @@ public class JGameHard extends JFrame {
 									meta.local[5] = 1;
 						   				break;
 								}
-								aux = meta.whoWin(meta.local, meta.ativo);
+								aux = meta.whoWin();
 								if(aux == 1) {
 									new Menu().setVisible(true);
 									dispose();
