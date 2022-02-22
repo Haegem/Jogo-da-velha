@@ -42,7 +42,6 @@ public class Game extends JFrame {
 	 */
 	
 	public Game() {
-		
 		metaData meta = new metaData();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 400);
@@ -51,309 +50,287 @@ public class Game extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
 		for(int i=0;i<9;i++) {
 			meta.local[i] = 3;
 		}
 		
-		JButton btnNoroeste = new JButton("NOROESTE");
-		btnNoroeste.setForeground(Color.BLACK);
-		btnNoroeste.addActionListener(new ActionListener() {
+		for(int i=0;i<9;i++) {
+			meta.btn[i] = new JButton();
+		}
+		
+		meta.btn[0].setForeground(Color.BLACK);
+		meta.btn[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnNoroeste, meta.pick);
+				meta.VerifyBackground(meta.btn[0], meta.pick);
 				
 				//Desabilitar o botão
-				btnNoroeste.setEnabled(false);
+				meta.btn[0].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[0] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[0] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
-				
 			}
 		});
-		btnNoroeste.setToolTipText("NOROESTE");
-		btnNoroeste.setBounds(10, 11, 121, 113);
-		contentPane.add(btnNoroeste);
+		meta.btn[0].setToolTipText("NOROESTE");
+		meta.btn[0].setBounds(10, 11, 121, 113);
+		contentPane.add(meta.btn[0]);
 		
-		JButton btnNordeste = new JButton("NORDESTE");
-		btnNordeste.addActionListener(new ActionListener() {
+		meta.btn[1].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnNordeste, meta.pick);
+				meta.VerifyBackground(meta.btn[1], meta.pick);
 				
 				//Desabilitar o botão
-				btnNordeste.setEnabled(false);
+				meta.btn[1].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[1] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[1] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
-				
 			}
 		});
-		btnNordeste.setToolTipText("NORDESTE");
-		btnNordeste.setBounds(252, 11, 121, 113);
-		contentPane.add(btnNordeste);
+		meta.btn[1].setToolTipText("NORDESTE");
+		meta.btn[1].setBounds(252, 11, 121, 113);
+		contentPane.add(meta.btn[1]);
 		
-		JButton btnSudoeste = new JButton("SUDOESTE");
-		btnSudoeste.addActionListener(new ActionListener() {
+		meta.btn[2].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnSudoeste, meta.pick);
+				meta.VerifyBackground(meta.btn[2], meta.pick);
 				
 				//Desabilitar o botão
-				btnSudoeste.setEnabled(false);
+				meta.btn[2].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[2] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[2] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
 			}
 		});
-		btnSudoeste.setToolTipText("SUDOESTE");
-		btnSudoeste.setBounds(10, 237, 121, 113);
-		contentPane.add(btnSudoeste);
+		meta.btn[2].setToolTipText("SUDOESTE");
+		meta.btn[2].setBounds(10, 237, 121, 113);
+		contentPane.add(meta.btn[2]);
 		
-		JButton btnSudeste = new JButton("SUDESTE");
-		btnSudeste.addActionListener(new ActionListener() {
+		meta.btn[3].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnSudeste, meta.pick);
+				meta.VerifyBackground(meta.btn[3], meta.pick);
 				
 				//Desabilitar o botão
-				btnSudeste.setEnabled(false);
+				meta.btn[3].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[3] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[3] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
 			}
 		});
-		btnSudeste.setToolTipText("SUDESTE");
-		btnSudeste.setBounds(252, 237, 121, 113);
-		contentPane.add(btnSudeste);
+		meta.btn[3].setToolTipText("SUDESTE");
+		meta.btn[3].setBounds(252, 237, 121, 113);
+		contentPane.add(meta.btn[3]);
 		
-		JButton btnNorte = new JButton("NORTE");
-		btnNorte.addActionListener(new ActionListener() {
+		meta.btn[4].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnNorte, meta.pick);
+				meta.VerifyBackground(meta.btn[4], meta.pick);
 				
 				//Desabilitar o botão
-				btnNorte.setEnabled(false);
+				meta.btn[4].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[4] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[4] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
 			}
 		});
-		btnNorte.setToolTipText("NORTE");
-		btnNorte.setBounds(131, 11, 121, 113);
-		contentPane.add(btnNorte);
+		meta.btn[4].setToolTipText("NORTE");
+		meta.btn[4].setBounds(131, 11, 121, 113);
+		contentPane.add(meta.btn[4]);
 		
-		JButton btnOeste = new JButton("OESTE");
-		btnOeste.addActionListener(new ActionListener() {
+		meta.btn[5].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnOeste, meta.pick);
+				meta.VerifyBackground(meta.btn[5], meta.pick);
 				
 				//Desabilitar o botão
-				btnOeste.setEnabled(false);
+				meta.btn[5].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[5] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[5] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
 			}
 		});
-		btnOeste.setToolTipText("OESTE");
-		btnOeste.setBounds(10, 124, 121, 113);
-		contentPane.add(btnOeste);
+		meta.btn[5].setToolTipText("OESTE");
+		meta.btn[5].setBounds(10, 124, 121, 113);
+		contentPane.add(meta.btn[5]);
 		
-		JButton btnCentro = new JButton("CENTRO");
-		btnCentro.addActionListener(new ActionListener() {
+		meta.btn[6].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnCentro, meta.pick);
+				meta.VerifyBackground(meta.btn[6], meta.pick);
 				
 				//Desabilitar o botão
-				btnCentro.setEnabled(false);
+				meta.btn[6].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[6] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[6] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
 			}
 		});
-		btnCentro.setToolTipText("CENTRO");
-		btnCentro.setBounds(131, 124, 121, 113);
-		contentPane.add(btnCentro);
+		meta.btn[6].setToolTipText("CENTRO");
+		meta.btn[6].setBounds(131, 124, 121, 113);
+		contentPane.add(meta.btn[6]);
 		
-		JButton btnLeste = new JButton("LESTE");
-		btnLeste.addActionListener(new ActionListener() {
+		meta.btn[7].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnLeste, meta.pick);
+				meta.VerifyBackground(meta.btn[7], meta.pick);
 				
 				//Desabilitar o botão
-				btnLeste.setEnabled(false);
+				meta.btn[7].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[7] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[7] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
 			}
 		});
-		btnLeste.setToolTipText("LESTE");
-		btnLeste.setBounds(252, 124, 121, 113);
-		contentPane.add(btnLeste);
+		meta.btn[7].setToolTipText("LESTE");
+		meta.btn[7].setBounds(252, 124, 121, 113);
+		contentPane.add(meta.btn[7]);
 		
-		JButton btnSul = new JButton("SUL");
-		btnSul.addActionListener(new ActionListener() {
+		meta.btn[8].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				//Determinar cor de fundo
-				meta.VerifyBackground(btnSul, meta.pick);
+				meta.VerifyBackground(meta.btn[8], meta.pick);
 				
 				//Desabilitar o botão
-				btnSul.setEnabled(false);
+				meta.btn[8].setEnabled(false);
 				
+				//Preencher para avisar se não tem mais jogadas à se fazer
 				meta.ativo[8] = true;
 				
+				//É determinado qual jogador clicou em qual botão
 				meta.local[8] = meta.transpick();
 				
 				//Determinar quem ganhou
 				try {
-					meta.whoWin();
+					if(meta.whoWin() == 1) {
+						dispose();
+					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				//Determinar se o jogo finalizará
-				if(meta.complete(meta.ativo) == true) {
-					new Menu().setVisible(true);
-					dispose();
-				}
 			}
 		});
-		btnSul.setToolTipText("SUL");
-		btnSul.setBounds(131, 237, 121, 113);
-		contentPane.add(btnSul);
+		meta.btn[8].setToolTipText("SUL");
+		meta.btn[8].setBounds(131, 237, 121, 113);
+		contentPane.add(meta.btn[8]);
 		
 	}
 }

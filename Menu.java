@@ -25,6 +25,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
@@ -53,9 +54,12 @@ public class Menu extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws IOException 
+	 * @throws FileNotFoundException 
+	 * @throws HeadlessException 
 	 */
 	
-	public Menu() {
+	public Menu() throws HeadlessException, FileNotFoundException, IOException {
 		
 		String[] rankingName = new String[10];
 		
@@ -157,47 +161,46 @@ public class Menu extends JFrame {
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-
 				String nick = txtNick.getText();
 				Players player = new Players();
 				player.setNick(nick);
 				
 				rankingName[0] = player.getNick();
 				 if(btnUmJogador.isEnabled() == false) {
-						Game screen2 = new Game();
+						Game screenGM = new Game();
 						
-						screen2.setVisible(true);
+						screenGM.setVisible(true);
 						dispose();
-						screen2.setResizable(false);
-						screen2.setLocationRelativeTo(null);
+						screenGM.setResizable(false);
+						screenGM.setLocationRelativeTo(null);
 				 }else {
 					 if(comboBoxDiff.getSelectedItem() == "EASY"){
-						JGameEasy screen2 = null;
+						JGameEasy screenE = null;
 						try {
-							screen2 = new JGameEasy();
+							screenE = new JGameEasy();
 						} catch (HeadlessException | IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						
-						screen2.setVisible(true);
+							
+						screenE.setVisible(true);
 						dispose();
-						screen2.setResizable(false);
-						screen2.setLocationRelativeTo(null);
+						screenE.setResizable(false);
+						screenE.setLocationRelativeTo(null);
 					 }
 					 else {
-						JGameHard screen2 = null;
+						JGameHard screenH = null;
 						try {
-							screen2 = new JGameHard();
+							screenH = new JGameHard();
 						} catch (HeadlessException | IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 						
-						screen2.setVisible(true);
+						screenH.setVisible(true);
 						dispose();
-						screen2.setResizable(false);
-						screen2.setLocationRelativeTo(null);
+						screenH.setResizable(false);
+						screenH.setLocationRelativeTo(null);
 				 	}
 				 }
 				

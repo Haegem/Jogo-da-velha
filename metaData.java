@@ -14,15 +14,15 @@ import javax.swing.JOptionPane;
 
 public class metaData {
 	
-	/*meta.localNoroeste = 0
-	meta.localNordeste = 1
-	meta.localSudoeste = 2
-	meta.localSudeste = 3
-	meta.localNorte = 4
-	meta.localOeste = 5
-	meta.localCentro = 6
-	meta.localLeste = 7
-	meta.localSul = 8*/
+	/*localNoroeste = 0
+	localNordeste = 1
+	localSudoeste = 2
+	localSudeste = 3
+	localNorte = 4
+	localOeste = 5
+	localCentro = 6
+	localLeste = 7
+	localSul = 8*/
 	
     Random ran = new Random();
 
@@ -32,7 +32,7 @@ public class metaData {
     int[] cont = new int[9];
     //Botões das coordenadas
     JButton[] btn = new JButton[9];
-    //Visualizador se botão já foi apertado
+    //Determina os botões disponíveis para a IA selecionar
 	int local[] = new int[9];
 	//Visualizador se todos os botões ja foram apertado
 	boolean[] ativo = {false, false, false, false, false, false, false, false, false};
@@ -150,7 +150,7 @@ public class metaData {
 		return 0;
 	}
 	
-	public boolean complete(boolean[] ativo) {
+	/*public boolean complete(boolean[] ativo) {
 		if(ativo[0] == true && ativo[1] == true && ativo[2] == true && ativo[3] == true &&
 				ativo[4] == true && ativo[5] == true && ativo[6] == true && ativo[7] == true
 				&& ativo[8] == true) {
@@ -158,7 +158,7 @@ public class metaData {
 			return true;
 		}
 		return false;
-	}
+	}*/
 	
 	public void VerifyBackground(JButton btn, int pick) {
 		if(pick == 0) {
@@ -351,6 +351,98 @@ public class metaData {
     }
 	
 		//MÉTODOS GAME HARD
+	
+public int whoFirst(int firstActivated) {
+	int aux = 0;
+
+	if(firstActivated < 2) {
+				switch (generateFirst()) {
+				case 0:
+					local[0] = 1;
+					btn[0].setBackground(Color.red);
+					
+	    				break;
+				case 1:
+					local[1] = 1;
+					btn[1].setBackground(Color.red);
+		   				break;
+				case 2:
+					local[4] = 1;
+					btn[4].setBackground(Color.red);
+		    			break;
+				case 3:
+					local[5] = 1;
+					btn[5].setBackground(Color.red);
+		   				break;
+				}
+				firstActivated += 1;
+	}else {
+		try {
+			aux = whoWin();
+		} catch (HeadlessException | IOException e2) {
+			e2.printStackTrace();
+		}
+		if(aux == 1) {
+			try {
+				new Menu().setVisible(true);
+			} catch (HeadlessException | IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			return 1;
+		}
+		else {
+		try {
+			switch (generate()) {
+			case 0:
+				local[0] = 1;
+				btn[0].setBackground(Color.red);
+    				break;
+			case 4:
+				local[2] = 1;
+				btn[2].setBackground(Color.red);
+	    			break;
+			case 1:
+				local[1] = 1;
+				btn[1].setBackground(Color.red);
+	   				break;
+			case 5:
+				local[3] = 1;
+				btn[3].setBackground(Color.red);
+	    			break;
+			case 6:
+				local[8] = 1;
+				btn[8].setBackground(Color.red);
+	    			break;
+			case 7:
+				local[6] = 1;
+				btn[6].setBackground(Color.red);
+	    			break;
+			case 2:
+				local[4] = 1;
+				btn[4].setBackground(Color.red);
+	    			break;
+			case 8:
+				local[7] = 1;
+				btn[7].setBackground(Color.red);
+	    			break;
+			case 3:
+				local[5] = 1;
+				btn[5].setBackground(Color.red);
+	   				break;
+			}
+			aux = whoWin();
+			if(aux == 1) {
+				new Menu().setVisible(true);
+			}
+		} catch (HeadlessException | IOException e1) {
+			e1.printStackTrace();
+		}
+		}
+	}
+	return 0;
+}
+	
 	public int generateFirst () {
 		int save = 0;
 
