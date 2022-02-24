@@ -36,7 +36,6 @@ public class JGameHard extends JFrame {
 	int[] cont = new int[9];
 	int saveGen = 0;
 	// int resultmeta.local;
-	int firstActivated = 0;
 	int dataBase = 2;
 	int aux = 0;
 
@@ -54,21 +53,11 @@ public class JGameHard extends JFrame {
 			meta.btn[i] = new JButton();
 		}
 
-		switch (meta.generateFirst()) {
-		case 0:
-			meta.local[0] = 1;
-			break;
-		case 1:
-			meta.local[1] = 1;
-			break;
-		case 2:
-			meta.local[4] = 1;
-			break;
-		case 3:
-			meta.local[5] = 1;
-			break;
+		for (int i = 0; i < 9; i++) {
+			meta.local[i] = 2;
 		}
-		firstActivated += 1;
+
+		meta.generateFirst();
 
 		meta.btn[0].addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,17 +68,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[0].setEnabled(false);
 
-				cont[0] = 1;
-
 				meta.btn[0].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[0] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -106,17 +101,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[1].setEnabled(false);
 
-				cont[1] = 1;
-
 				meta.btn[1].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[1] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -133,17 +134,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[2].setEnabled(false);
 
-				cont[2] = 1;
-
 				meta.btn[2].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[2] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -160,17 +167,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[3].setEnabled(false);
 
-				cont[3] = 1;
-
 				meta.btn[3].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[3] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -187,17 +200,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[4].setEnabled(false);
 
-				cont[4] = 1;
-
 				meta.btn[4].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[4] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -214,17 +233,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[5].setEnabled(false);
 
-				cont[5] = 1;
-
 				meta.btn[5].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[5] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -241,17 +266,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[6].setEnabled(false);
 
-				cont[6] = 1;
-
 				meta.btn[6].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[6] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -268,17 +299,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[7].setEnabled(false);
 
-				cont[7] = 1;
-
 				meta.btn[7].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[7] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
@@ -295,17 +332,23 @@ public class JGameHard extends JFrame {
 				// Desabilitar o botão
 				meta.btn[8].setEnabled(false);
 
-				cont[8] = 1;
-
 				meta.btn[8].setBackground(Color.green);
 
 				// Determina que o botão foi clicado pelo jogador
 				// , para que a IA selecione os próximos
 				meta.local[8] = 0;
 
-				// Determina jogada da máquina
-				if (meta.whoFirst(firstActivated) == 1) {
-					dispose();
+				// Determinar quem ganhou ou iniciar jogada da IA
+				try {
+					if (meta.whoWin() == 1) {
+						dispose();
+					} else if (meta.whoFirst() == 1) {
+						dispose();
+						System.out.println("erro");
+					}
+				} catch (HeadlessException | IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});
