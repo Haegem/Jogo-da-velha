@@ -14,11 +14,6 @@ import javax.swing.JOptionPane;
 
 public class metaData {
 
-	/*
-	 * localNoroeste = 0 localNordeste = 1 localSudoeste = 2 localSudeste = 3
-	 * localNorte = 4 localOeste = 5 localCentro = 6 localLeste = 7 localSul = 8
-	 */
-
 	Random ran = new Random();
 
 	// Escolha de jogador
@@ -33,11 +28,6 @@ public class metaData {
 	int local[] = new int[9];
 	// Visualizador se todos os botões ja foram apertado
 	boolean[] ativo = { false, false, false, false, false, false, false, false, false };
-	// Salvador player
-	// private String dataNick;
-	// private int setSave = 0;
-	// Construtor do metaData player
-	// metaData player = new metaData();
 
 	// MÉTODOS COMUNS
 	public int transpick() {
@@ -53,7 +43,82 @@ public class metaData {
 		return result;
 	}
 
-	public int whoWin() throws HeadlessException, FileNotFoundException, IOException {
+	public int whoWinMP() throws HeadlessException, FileNotFoundException, IOException {
+		if (local[0] == 0 && local[6] == 0 && local[3] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[0] == 1 && local[6] == 1 && local[3] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[0] == 0 && local[4] == 0 && local[1] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[0] == 1 && local[4] == 1 && local[1] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[0] == 0 && local[5] == 0 && local[2] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[0] == 1 && local[5] == 1 && local[2] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[5] == 0 && local[6] == 0 && local[7] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[5] == 1 && local[6] == 1 && local[7] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[2] == 0 && local[8] == 0 && local[3] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[2] == 1 && local[8] == 1 && local[3] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[1] == 0 && local[6] == 0 && local[2] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[1] == 1 && local[6] == 1 && local[2] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[1] == 0 && local[7] == 0 && local[3] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[1] == 1 && local[7] == 1 && local[3] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[4] == 0 && local[6] == 0 && local[8] == 0) {
+			JOptionPane.showMessageDialog(null, "Jogador 1 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		} else if (local[4] == 1 && local[6] == 1 && local[8] == 1) {
+			JOptionPane.showMessageDialog(null, "Jogador 2 ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		}
+		if (ativo[0] == true && ativo[1] == true && ativo[2] == true && ativo[3] == true && ativo[4] == true
+				&& ativo[5] == true && ativo[6] == true && ativo[7] == true && ativo[8] == true) {
+			JOptionPane.showMessageDialog(null, "Ninguém ganhou!");
+			new Menu().setVisible(true);
+			return 1;
+		}
+		return 0;
+	}
+
+	public int whoWinSP() throws HeadlessException, FileNotFoundException, IOException {
 		if (local[0] == 0 && local[6] == 0 && local[3] == 0) {
 			JOptionPane.showMessageDialog(null, "Você venceu!");
 			// player.carregar().replaceAll(" = 0 V", " = 1 V ");
@@ -129,53 +194,12 @@ public class metaData {
 		return 0;
 	}
 
-	/*
-	 * public boolean complete(boolean[] ativo) { if(ativo[0] == true && ativo[1] ==
-	 * true && ativo[2] == true && ativo[3] == true && ativo[4] == true && ativo[5]
-	 * == true && ativo[6] == true && ativo[7] == true && ativo[8] == true) {
-	 * JOptionPane.showMessageDialog(null, "Ninguém ganhou!"); return true; } return
-	 * false; }
-	 */
-
 	public void VerifyBackground(JButton btn, int pick) {
 		if (pick == 0) {
 			btn.setBackground(Color.GREEN);
 		} else {
 			btn.setBackground(Color.RED);
 		}
-	}
-
-	// MÉTODOS MENU
-
-	public void salvar(String conteudo, boolean adicionar) throws IOException {
-		FileWriter fw = new FileWriter("C:\\Users\\J_geb\\eclipse-workspace\\Jogo da Velha\\" + "savedDataNicks.txt",
-				adicionar);
-		PrintWriter pw = new PrintWriter(fw);
-		pw.println(conteudo);
-		pw.flush();
-		pw.close();
-	}
-
-	/*
-	 * public String carregar() throws FileNotFoundException, IOException {
-	 * 
-	 * File file = new File("C:\\Users\\User1\\eclipse-workspace\\Jogo da Velha\\" +
-	 * "savedDataNicks.txt");
-	 * 
-	 * if (! file.exists()) { return null; }
-	 * 
-	 * BufferedReader br = new BufferedReader(new
-	 * FileReader("C:\\Users\\J_geb\\eclipse-workspace\\" +
-	 * "Jogo da Velha\\savedDataNicks.txt")); StringBuffer bufSaida = new
-	 * StringBuffer();
-	 * 
-	 * int c; while( (c = br.read()) > 1 ){ bufSaida.append((char)c); } br.close();
-	 * return bufSaida.toString(); }
-	 */
-
-	public void Players() {
-		// this.dataNick = "";
-		// this.dataPoints = 0;
 	}
 
 	// MÉTODOS GAME EASY
@@ -306,8 +330,7 @@ public class metaData {
 		} else {
 			try {
 				generate();
-				if (whoWin() == 1) {
-					new Menu().setVisible(true);
+				if (whoWinSP() == 1) {
 					return 1;
 				}
 			} catch (HeadlessException | IOException e1) {

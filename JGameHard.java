@@ -76,11 +76,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -109,11 +108,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -142,11 +140,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -175,11 +172,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -208,11 +204,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -241,11 +236,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -274,11 +268,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -307,11 +300,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -340,11 +332,10 @@ public class JGameHard extends JFrame {
 
 				// Determinar quem ganhou ou iniciar jogada da IA
 				try {
-					if (meta.whoWin() == 1) {
+					if (meta.whoWinSP() == 1) {
 						dispose();
 					} else if (meta.whoFirst() == 1) {
 						dispose();
-						System.out.println("erro");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block

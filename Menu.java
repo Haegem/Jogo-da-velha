@@ -25,8 +25,13 @@ import javax.swing.JScrollBar;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.awt.event.ActionEvent;
 
 public class Menu extends JFrame {
@@ -59,9 +64,40 @@ public class Menu extends JFrame {
 	 * @throws HeadlessException 
 	 */
 	
+	// Método para salvar nome no ranking
+	public void salvar(String conteudo, boolean adicionar) throws IOException {
+		FileWriter fw = new FileWriter("C:\\Users\\João\\eclipse-workspace\\Jogo-da-velha.txt", adicionar);
+		PrintWriter pw = new PrintWriter(fw);
+		pw.println(conteudo);
+		pw.flush();
+		pw.close();
+	}
+
+	public String carregar() throws FileNotFoundException, IOException {
+
+		File file = new File("C:\\Users\\João\\eclipse-workspace\\Jogo-da-velha.txt");
+
+		if (!file.exists()) {
+			return null;
+		}
+
+		BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\João\\eclipse-workspace\\Jogo-da-velha.txt"));
+		StringBuffer bufSaida = new StringBuffer();
+
+		int c;
+		while ((c = br.read()) > 1) {
+			bufSaida.append((char) c);
+		}
+		br.close();
+		return bufSaida.toString();
+	}
+	
 	public Menu() throws HeadlessException, FileNotFoundException, IOException {
 		
 		String[] rankingName = new String[10];
+		// Salvador player
+		String dataNick = "";
+		int setSave = 0;
 		
 		setBounds(100, 100, 700, 400);
 		contentPane = new JPanel();
@@ -161,11 +197,12 @@ public class Menu extends JFrame {
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String nick = txtNick.getText();
-				Players player = new Players();
-				player.setNick(nick);
+				metaData meta = new metaData();
 				
-				rankingName[0] = player.getNick();
+				meta.salvar(txtNick.getText(), true);
+				//Players player = new Players();
+				//player.setNick(nick);
+				
 				 if(btnUmJogador.isEnabled() == false) {
 						Game screenGM = new Game();
 						

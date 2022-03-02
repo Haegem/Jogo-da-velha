@@ -77,7 +77,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -108,7 +108,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -139,7 +139,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -169,7 +169,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -199,7 +199,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -229,7 +229,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -259,7 +259,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -289,7 +289,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
@@ -319,7 +319,7 @@ public class Game extends JFrame {
 				
 				//Determinar quem ganhou
 				try {
-					if(meta.whoWin() == 1) {
+					if(meta.whoWinMP() == 1) {
 						dispose();
 					}
 				} catch (HeadlessException | IOException e1) {
