@@ -19,7 +19,6 @@ public class JGameHard extends JFrame {
 	private JPanel contentPane;
 
 	public static void main(String[] args) {
-		Base aux = new Base();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+
 import java.awt.Color;
 import javax.swing.JList;
 import javax.swing.AbstractListModel;
@@ -27,7 +29,6 @@ import java.awt.event.ActionEvent;
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
-	public Players player;
 	private JTextField txtNick;
 	private JTextField txtInsiraAqui;
 
@@ -64,14 +65,25 @@ public class Menu extends JFrame {
 	}
 
 	public static void salvar(String path, String linha) throws IOException {
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
-		buffWrite.append(linha + "-");
-		buffWrite.close();
+		FileWriter fw = new FileWriter(path, true);
+		fw.write("1 WIN - " + linha + "]");
+		fw.close();
 	}
+
+	public static void att(String[] rankingName, String path) throws IOException {
+		BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+		String aux = "";
+		for (int i = 0; i < rankingName.length; i++) {
+			aux += rankingName[i] + "]";
+		}
+		bw.append(aux);
+		bw.close();
+	}
+
+	String[] rankingName = new String[10];
 
 	public Menu() throws HeadlessException, FileNotFoundException, IOException {
 
-		String[] rankingName = new String[10];
 		// Salvador player
 		String dataNick = "";
 		int setSave = 0;
@@ -168,14 +180,62 @@ public class Menu extends JFrame {
 		txtInsiraAqui.setBounds(196, 220, 429, 56);
 		contentPane.add(txtInsiraAqui);
 
+		// LISTA DO RANKING
+		String aux = carregar("C:\\Users\\J_geb\\eclipse-workspace\\SavedDataNicks.txt");
+		if (carregar("C:\\Users\\J_geb\\eclipse-workspace\\SavedDataNicks.txt") != null) {
+			rankingName = aux.split("]");
+		}
+
 		// BOTÃO PARA CONFIRMAR NICK
 		JButton btnConfirm = new JButton("CONFIRMAR");
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				String[] auxiliar = new String[2];
 				try {
-					salvar("C:\\Users\\João\\eclipse-workspace\\Jogo-da-velha\\SavedDataNicks.txt", txtNick.getText());
-				} catch (IOException e2) {
+					if (carregar("C:\\Users\\J_geb\\eclipse-workspace\\SavedDataNicks.txt") == null) {
+						try {
+							salvar("C:\\Users\\J_geb\\eclipse-workspace\\SavedDataNicks.txt", txtNick.getText());
+						} catch (IOException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						}
+					} else {
+						int cont = 0;
+						for (int i = 0; i < rankingName.length; i++) {
+							auxiliar = rankingName[i].split(" WIN - ");
+							if (txtNick.getText().equalsIgnoreCase(auxiliar[1])) {
+								int aux2 = Integer.parseInt(auxiliar[0]);
+								aux2 += 1;
+								rankingName[i] = String.valueOf(aux2) + " WIN - " + auxiliar[1];
+
+								String[] auxiliar2 = new String[2];
+								String temp = "";
+								for (int h = 0; h < rankingName.length; h++) {
+									auxiliar2 = rankingName[h].split(" WIN - ");
+									if (Integer.parseInt(auxiliar[0]) >= Integer.parseInt(auxiliar2[0])) {
+										temp = rankingName[h];
+										System.out.println("temp: " + temp);
+										rankingName[h] = rankingName[i];
+										System.out.println("rankingName[h]: " + rankingName[h]);
+										rankingName[i] = temp;
+										System.out.println("rankingName[i]: " + rankingName[i]);
+									}
+								}
+
+								att(rankingName, "C:\\Users\\J_geb\\eclipse-workspace\\SavedDataNicks.txt");
+								cont = 1;
+							}
+						}
+						if (cont == 0) {
+							try {
+								salvar("C:\\Users\\J_geb\\eclipse-workspace\\SavedDataNicks.txt", txtNick.getText());
+							} catch (IOException e2) {
+								// TODO Auto-generated catch block
+								e2.printStackTrace();
+							}
+						}
+					}
+				} catch (NumberFormatException | IOException e2) {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
@@ -225,24 +285,13 @@ public class Menu extends JFrame {
 		btnConfirm.setBounds(364, 300, 128, 23);
 		contentPane.add(btnConfirm);
 
-		// LISTA DO RANKING
-		String aux = carregar("C:\\Users\\João\\eclipse-workspace\\Jogo-da-velha\\SavedDataNicks.txt");
-		rankingName = aux.split("-");
-
 		JList listRanking = new JList();
 		listRanking.setFont(new Font("Txt_IV50", Font.PLAIN, 11));
-		listRanking.setModel(new AbstractListModel() {
-			
-			String[] values = new String[] {rankingName[0]};
-
-			public int getSize() {
-				return values.length;
-			}
-
-			public Object getElementAt(int index) {
-				return values[index];
-			}
-		});
+		final DefaultListModel dl = new DefaultListModel();
+		listRanking.setModel(dl);
+		for (int i = 0; i < rankingName.length; i++) {
+			dl.addElement(rankingName[i]);
+		}
 		listRanking.setToolTipText("LISTRANKING");
 		listRanking.setBounds(5, 146, 128, 204);
 		contentPane.add(listRanking);
